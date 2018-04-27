@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style type="text/css">
+        .jumbotron {
+            background-color: green !important;
+            color: white !important;
+        }
+
+        .bg-green {
+            background-color: lightgreen;
+        }
+
+        .card-body {
+            border-radius: 16px !important;
+            background-color: lightgreen;
+        }
+
+        .dropdown-item.normal:hover {
+            text-decoration: underline !important;
+            text-decoration-color: darkgray !important;
+        }
+
+        .dropdown-item.normal:active {
+            background-color: lightgreen !important;
+        }
+
+        .dropdown-item.normal {
+            color: #212529 !important;
+        }
+
+        .dropdown-header {
+            font-weight: bold !important;
+        }
+
+        button.btn-lg {
+            background-color: green !important;
+            border-color: green !important;
+        }
+    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width = device-width, initial-scale = 1" />
+    <title>Bootstrap</title>
+    <!--<divnk rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Bootstrap Demo</h1>
+        </div>
+        <div class="jumbotron">
+            <div>How about this?</div>
+            <p>
+                Hello... this is a test for styling and functionality with issues I encountered:
+                <ul>
+                    <li>
+                        Apparently the styling updates in the tutorial, "https://www.youtube.com/watch?v=gqOEoUR5RHg"
+                        did not work for me without overriding existing style from referenced bootstrap.min.css, i.e. need to use !important.
+                    </li>
+                    <li>
+                        Another issue popped up is that text is not sized or padded correctly inside the paragraph tag within the jumbotron class,
+                        fixed by upgrading to bootstrap version 4.0.0.
+                    </li>
+                    <li>
+                        Contrary to what this tutorial expressed have not seen any evidence of a change in font size when resizing screen under the jumbotron class
+                    </li>
+                    <li>
+                        Had a problem with the hide/show of elements due in part to my css and javascript references not in sync, tutorial uses Bootstrap 3 where class="collapse in"
+                        which replaced by class="collapse show" in Bootstrap 4.
+                    </li>
+                    <li>
+                        Well has been replaced by Card in Bootstrap 4 with no replacement for default gray background with rounded corners, need to use styling overrides.
+                    </li>
+                    <li>
+                        This tutorial uses Well to hide elements based on screen size. This does not work in Bootstrap 4.
+                        I used class="d-none d-lg-block".
+                    </li>
+                    <li>
+                        Dropdowns - need to add a reference to popper.js to get the dropdown to open and close. Also numerous issues with the &lt;li&gt; tag, does not work for alignment and
+                        disabled attribute in Bootstrap 4. Use just the &lt;a&gt; tag with classes like "dropdown-item" and "dropdown-item disabled." Another difference is the seperator does
+                        not work with the &lt;li&gt;, use the div tag with class="dropdown-divider." I also did some styling overrides to show underlines, bold for header text, and background
+                        color when item is active. So the progression of classes that works with &lt;ul&gt; is class="dropdown-menu" followed by &lt;li&gt; class="dropdown-item" all contained
+                        in a &lt;div&gt; where class="dropdown". Similar for horizontal dropdown where class="list-inline" and class"list-inline-item"
+                    </li>
+                    <li>
+                        ARIA - Accessible Rich Internet Applications<br />
+                        The tutorial gave a screenshot of a URL reference that required some digging to not get a 404 error, page not found
+                        <br />
+                        https://www.w3.org/TR/wai-aria/#aria-expanded - this should work to provide documentation to allow assistive technologies like screen readers to convey screen content for persons with disabilities.
+                    </li>
+                </ul>
+            </p>
+        </div>
+        <p>
+            <a href="#" class="btn btn-default btn-lg" role="button">More info</a>
+            <button type="submit" class="btn btn-danger" role="button">Button</button>
+            <input type="button" value="Info" class="btn btn-info">
+            <button type="submit" class="btn-primary btn-sm">Primary</button>
+            <button type="submit" class="btn btn-success btn-xs">Success</button>
+            <button type="submit" class="btn btn-warning btn-lg">Warning</button>
+            <button type="submit" class="btn btn-link btn-lg" style="color: blue;">Link</button>
+        </p>
+
+        <div class="row">
+            <div class="col-lg-9 col-md-6 col-sm-6 col-xs-12">
+                <h4><a href="#col1Content" data-toggle="collapse">Column 1 can be hidden</a></h4>
+                <div id="col1Content" class="collapse show">
+                    This is a demo for responsive and scaling grid layouts. Bootstrap uses a 12 column system which can be broken up into differently sized column groups dependent on available pixels in screen.
+                    Irregularites can occur on different div content sizes. Column 1 has more text than column 2 so when size changes from medium to small a alignment problem is encountered. This can be fixed
+                    using the clearfix class.
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <h4>Column 2</h4>
+                This is a demo for responsive and scaling grid layouts. Bootstrap uses a 12 column system which can be broken up into differently sized column groups dependent on available pixels in screen.
+            </div>
+            <div class="clearfix visible-sm"></div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <h4>Column 3</h4>
+                This is a demo for responsive and scaling grid layouts. Bootstrap uses a 12 column system which can be broken up into differently sized column groups dependent on available pixels in screen.
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <h4><a href="#col4Content" data-toggle="collapse">Column 4 can be hidden</a></h4>
+                <div id="col4Content" class="collapse show">
+                    Column 4 & 1 takes up different screen percentages when in large and medium mode but same otherwise.
+                    So basically each div element can have it's own fractional portion, x/12 of the screen based on 4 different screen sizes
+                    and subsequent divs just float right.
+                    <br>Hmmm... wild and crazy stuff!
+                </div>
+            </div>
+        </div>
+        <!-- well/card surrounds the text with a rounded border and gray background. The size can be changed with well-sm or well-lg -->
+        <h2>Well Size</h2>
+        <div class="d-none d-lg-block">
+            <div class="card-body">
+                <p>Hidden when screen size is &lt; 992 pixels</p>
+            </div>
+        </div>
+        <br />
+
+        <!-- DROP DOWN MENUS -->
+        <!-- You can easily add a drop down menu with class dropdown, or dropup. Change button size with btn-lg, btn-sm, btn-xs
+        ARIA stands for Accessible Rich Internet Applications and it is used to make apps more excessible for people with disabilities. aria-haspopup states that the element has a sub menu. aria-expanded defines if the sub-menu is expanded. Full list here http://www.w3.org/TR/wai-aria/states_and_properties#aria-expanded -->
+        <h2>Dropdowns</h2>
+        <h3>Verticle</h3>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle btn-lg" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                Favorite Hero
+            </button>
+            <div class="dropdown-menu">
+                <!-- Unselectable header -->
+                <a class="dropdown-header">Marvel</a>
+                <a class="dropdown-item normal" href="#">Spiderman</a>
+                <a class="dropdown-item normal" href="#">Captain America</a>
+                <a class="dropdown-item normal" href="#">Iron Man</a>
+
+                <!-- Seperates content in menu -->
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-header">DC</a>
+
+                <!-- Disable menu element -->
+                <a class="dropdown-item disabled" href="#">Superman</a>
+                <a class="dropdown-item normal" href="#">Batman</a>
+                <a class="dropdown-item normal" href="#">Flash</a>
+            </div>
+        </div>
+        <br />
+        <!-- Basic horizontal menu -->
+        <h3>Horizontal</h3>
+        <ul class="list-inline">
+            <li class="list-inline-item">
+                <a href="#">Home</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#">About</a>
+            </li>
+            <li class="list-inline-item">
+                <!-- Add a dropdown menu -->
+                <div class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Contact
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <a href="#" target="_blank">Phone</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Email</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Schedule Appointment</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="list-inline-item">
+                <a href="#">Shop</a>
+            </li>
+        </ul>
+        <br />
+        <h2>Navbar with Dropdown</h2>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <ul class="navbar-nav dropup">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+
+                <!-- Add drop down menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                        Contact
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" target="_self">Phone</a></li>
+                        <li><a class="dropdown-item" href="#">Email</a></li>
+                        <li><a class="dropdown-item" href="#">Schedule Appointment</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shop</a>
+                </li>
+
+            </ul>
+        </nav>
+        <br />
+        <h2>Pagination</h2>
+        <nav>
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#" >3</a></li>
+                <li class="page-item"><a class="page-link" href="#" >4</a></li>
+                <li class="page-item"><a class="page-link" href="#" >5</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <br>
+
+
+
+        <br />
+    </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
