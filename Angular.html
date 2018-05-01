@@ -2,9 +2,12 @@
 <html>
 
 <head>
-    <title></title>
+    <title>Angular Data Integrations</title>
+    <link rel="stylesheet" href="content/BSStyle.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
     <!--<div ng-app="customers" ng-controller="customersCtrl">
@@ -32,25 +35,27 @@
     </script>-->
 
     <!--THIS WORKS-->
-   
-    <div ng-app="customers" ng-controller="customersCtrl">
-        <h3><a href="https://www.w3schools.com/angular/customers.php" target="_blank">Json Data</a></h3>
-        <ul>
-            <li ng-repeat="x in myData">
-                {{ x.Name + ', ' + x.Country }}
-            </li>
-        </ul>
+   <div class="jumbotron">
+       <h2>Sample of data integration using AngularJS</h2>
+       <h4><a href="https://www.w3schools.com/angular/customers.php" target="_blank">Json Data</a></h4>
+       <div ng-app="customers" ng-controller="customersCtrl">
+           <ul>
+               <li ng-repeat="x in myData">
+                   {{ x.Name + ', ' + x.Country }}
+               </li>
+           </ul>
+       </div>
+       <script>
+           var app = angular.module('customers', []);
+           app.controller('customersCtrl', function ($scope, $http) {
+               $http.get("https://www.w3schools.com/angular/customers.php").then(function (response) {
+                   $scope.myData = response.data.records;
+               });
+           });
+       </script>
+   </div>
 
-    </div>
-
-    <script>
-        var app = angular.module('customers', []);
-        app.controller('customersCtrl', function ($scope, $http) {
-            $http.get("https://www.w3schools.com/angular/customers.php").then(function (response) {
-                $scope.myData = response.data.records;
-            });
-        });
-    </script>
+    
 
 </body>
 
