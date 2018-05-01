@@ -1,12 +1,65 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    
+    <style type="text/css">
+        .jumbotron {
+            background-color: black !important;
+            color: white !important;
+        }
+
+        .bg-green {
+            background-color: lightgreen;
+        }
+
+        .bg-black{
+            background-color: black !important;
+        }
+
+        .card-body {
+            border-radius: 16px !important;
+            background-color: lightgreen;
+        }
+
+        .dropdown-item.normal:hover {
+            text-decoration: underline !important;
+            text-decoration-color: darkgray !important;
+        }
+
+        .dropdown-item.normal:active {
+            background-color: lightgreen !important;
+        }
+
+        .dropdown-item.normal {
+            color: #212529 !important;
+        }
+
+        .dropdown-header {
+            font-weight: bold !important;
+        }
+
+        button.btn-lg {
+            background-color: green !important;
+            border-color: green !important;
+        }
+        .light{
+            background-color: white !important;
+            color: black !important;
+            text-align: center;
+            font-style:italic;
+            margin: 0px !important;
+        }
+
+        .nav-link.active, .active > .nav-link{
+            color: yellow !important;
+        }
+
+
+    </style>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width = device-width, initial-scale = 1" />
     <title>Bootstrap</title>
+    <!--<divnk rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
 
-    <link rel="stylesheet" href="content/BSStyle.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -46,13 +99,13 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#" target="_self">Phone</a></li>
-                        <li><a class="dropdown-item" href="#">Email</a></li>
+                        <li><a class="dropdown-item" href="#" target="_self">Phone: 772-210-4381</a></li>
+                        <li><a class="dropdown-item" href="#">Email: jflurkey@comcast.net</a></li>
                         <li><a class="dropdown-item" href="#">Schedule Appointment</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Angular.html" target="_blank">Work in Progress</a>
+                    <a class="nav-link" href="Angular.html" target="_blank" >Work in Progress</a>
                 </li>
 
             </ul>
@@ -98,7 +151,8 @@
                         ARIA - Accessible Rich Internet Applications<br />
                         The tutorial gave a screenshot of a URL reference that required some digging to not get a 404 error, page not found
                         <br />
-                        https://www.w3.org/TR/wai-aria/#aria-expanded - this should work to provide documentation to allow assistive technologies like screen readers to convey screen content for persons with disabilities.
+                        <a href="https://www.w3.org/TR/wai-aria/#aria-expanded" target="_blank">https://www.w3.org/TR/wai-aria/#aria-expanded</a>
+                         - this should work to provide documentation to allow assistive technologies like screen readers to convey screen content for persons with disabilities.
                     </li>
                 </ul>
             </p>
