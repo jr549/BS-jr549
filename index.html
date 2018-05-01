@@ -3,12 +3,16 @@
 <head>
     <style type="text/css">
         .jumbotron {
-            background-color: green !important;
+            background-color: black !important;
             color: white !important;
         }
 
         .bg-green {
             background-color: lightgreen;
+        }
+
+        .bg-black{
+            background-color: black !important;
         }
 
         .card-body {
@@ -37,25 +41,86 @@
             background-color: green !important;
             border-color: green !important;
         }
+        .light{
+            background-color: white !important;
+            color: black !important;
+            text-align: center;
+            font-style:italic;
+            margin: 0px !important;
+        }
+
+        .nav-link.active, .active > .nav-link{
+            color: yellow !important;
+        }
+
+
     </style>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width = device-width, initial-scale = 1" />
     <title>Bootstrap</title>
     <!--<divnk rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript">
+        // Update nav bar for styling change when user clicks another item
+        $(document).ready(function () {  
+           $(".navbar").click(function () {               
+               $(".nav-item.active").removeClass("active");              
+               $(event.target).parent().addClass("active");
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="container">
-        <div class="page-header">
-            <h1>Bootstrap Demo</h1>
+        <div class="jumbotron light">
+            <h1>Responsive Data Integrations</h1>
+            <h2>by John Flurkey</h2>
         </div>
+        <nav class="navbar navbar-expand-sm bg-black navbar-dark">
+            <ul class="navbar-nav dropup">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+
+                <!-- Add drop down menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                        Contact
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" target="_self">Phone</a></li>
+                        <li><a class="dropdown-item" href="#">Email</a></li>
+                        <li><a class="dropdown-item" href="#">Schedule Appointment</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Angular.html">Work in Progress</a>
+                </li>
+
+            </ul>
+        </nav>
+        <br />
         <div class="jumbotron">
-            <div>How about this?</div>
+            <h1>Converting Bootstrap 3 to 4</h1>
             <p>
-                Hello... this is a test for styling and functionality with issues I encountered:
+                Originally thought I would try a straight forward tutorial in Bootstrap but there were many issues that I encountered and
+                apparently this is what happens when you do not filter your search results to a current date setting.
                 <ul>
                     <li>
-                        Apparently the styling updates in the tutorial, "https://www.youtube.com/watch?v=gqOEoUR5RHg"
-                        did not work for me without overriding existing style from referenced bootstrap.min.css, i.e. need to use !important.
+                        The css styling in the tutorial,
+                        <a href="https://www.youtube.com/watch?v=gqOEoUR5RHg" target="_blank">https://www.youtube.com/watch?v=gqOEoUR5RHg</a>
+                        did not work for me without overriding existing rules from referenced bootstrap.min.css, i.e. need to use !important.
                     </li>
                     <li>
                         Another issue popped up is that text is not sized or padded correctly inside the paragraph tag within the jumbotron class,
@@ -199,34 +264,7 @@
             </li>
         </ul>
         <br />
-        <h2>Navbar with Dropdown</h2>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <ul class="navbar-nav dropup">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
 
-                <!-- Add drop down menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
-                        Contact
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#" target="_self">Phone</a></li>
-                        <li><a class="dropdown-item" href="#">Email</a></li>
-                        <li><a class="dropdown-item" href="#">Schedule Appointment</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Shop</a>
-                </li>
-
-            </ul>
-        </nav>
         <br />
         <h2>Pagination</h2>
         <nav>
@@ -238,9 +276,9 @@
                 </li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#" >3</a></li>
-                <li class="page-item"><a class="page-link" href="#" >4</a></li>
-                <li class="page-item"><a class="page-link" href="#" >5</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
@@ -254,11 +292,6 @@
 
         <br />
     </div>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 </html>
