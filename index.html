@@ -8,55 +8,51 @@
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-   
+
 
     <script type="text/javascript">
-    // Update nav bar for styling change when user clicks another item
-    $(document).ready(function () {
-        $(".navbar").click(function () {
-            $(".nav-item.active").removeClass("active");
-            $(event.target).parent().addClass("active");
+        // Update nav bar for styling change when user clicks another item
+        $(document).ready(function () {
+            $(".navbar").click(function () {
+                $(".nav-item.active").removeClass("active");
+                $(event.target).parent().addClass("active");
+            });
         });
-    });
     </script>
 
 </head>
 <body ng-app="weather" ng-controller="weatherCtrl">
     <form name="wForm" ng-submit="GetIt()" id="widForm">
         <div class="container">
-            <div class="jumbotron light">
-                <h1>Responsive Data Integrations</h1>
-                <h2>by John Flurkey</h2>
-            </div>
-            <nav class="navbar navbar-expand-sm bg-black navbar-dark">
-                <ul class="navbar-nav dropup">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/jr549">About</a>
-                    </li>
+            <div class="jumbotron crack">
+                <!--<img class="rounded" src="content/BS_splash.png" alt="Crack" width="1060" height="60"/>-->
+                <nav class="navbar navbar-expand-sm bg-black navbar-dark">
+                    <ul class="navbar-nav dropup">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="https://github.com/jr549">About</a>
+                        </li>
 
-                    <!-- Add drop down menu -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
-                            Contact
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" target="_self">Phone: 772-210-4381</a></li>
-                            <li><a class="dropdown-item" href="#">Email: jflurkey@comcast.net</a></li>
-                            <li><a class="dropdown-item" href="https://www.dropbox.com/s/55uu9vj6ja8wl5t/CV_Flurkey_Web1a.pdf?dl=0" target="_blank">CV</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="BS_Conversion.html" target="_blank">Work in Progress</a>
-                    </li>
+                        <!-- Add drop down menu -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                                Contact
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" target="_self">Phone: 772-210-4381</a></li>
+                                <li><a class="dropdown-item" href="#">Email: jflurkey@comcast.net</a></li>
+                                <li><a class="dropdown-item" href="https://www.dropbox.com/s/55uu9vj6ja8wl5t/CV_Flurkey_Web1a.pdf?dl=0" target="_blank">CV</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="BS_Conversion.html" target="_blank">Work in Progress</a>
+                        </li>
 
-                </ul>
-            </nav>
-            <div class="jumbotron">
-                <h2>Responsive Data Integration via AngularJS</h2>                
+                    </ul>
+                </nav>
                 <div class="jumbotron light">
                     <h2>Weather in your area</h2>
                     <div>
@@ -78,36 +74,38 @@
                                     <h4>Winds&nbsp;{{conditions.wind_string}}</h4>
                                 </div>
                                 <div class="col-md-4">
-                                    <img src="" id="imagePath"/>
+                                    <img src="" id="imagePath" />
                                 </div>
-                            </div>                           
-                            
+                            </div>
+
                             <div class="container-fluid text-center text-md-left">
                                 <div class="row">
                                     <div class="col-md-2">
                                         <img src="content/logo_UW.png" style="background: black" />
                                     </div>
                                     <div class="col-md-10">
-                                        <ul class="list-unstyled">                                            
+                                        <ul class="list-unstyled">
                                             <li>
                                                 &nbsp;
+                                            </li>
+                                            <li>
+                                                <a href="https://angular.io/" target="_blank">
+                                                    https://angular.io/
+                                                </a>
                                             </li>
                                             <li>
                                                 <a href="https://www.wunderground.com/?apiref=024fbca7be2aba8a!" target="_blank">
                                                     https://www.wunderground.com
                                                 </a>
                                             </li>
-                                            <li>
-                                                Powered by Weather Underground
-                                            </li>
-
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>        
-                </div>             
+                    </div>
+                </div>
+
             </div>
         </div>
     </form>
