@@ -47,6 +47,9 @@ button.btn-lg {
     font-style: italic;
     margin: 0px !important;
 }
+.left{
+    text-align: left !important;
+}
 
 .nav-link.active, .active > .nav-link {
     color: yellow !important;
