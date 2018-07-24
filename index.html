@@ -74,9 +74,10 @@
                         Enter your 5 digit zip code:
                         <input name="zipcode" type="text" size="8" id="txtZip" ng-required="{{user.zip.required}}" autocomplete="off"
                                ng-model="zip" maxlength="{{user.zip.maxlength}}" minlength="{{user.zip.minlength}}" pattern="[0-9]{5}" />
-                        <!--<span style="color: red;" ng-show="wForm.zipcode.$dirty && wForm.zipcode.$error.required">*required</span>-->
-                        <!--<span style="color: red;" ng-show="wForm.zipcode.$error.pattern && wForm.zipcode.$dirty">*invalid zipcode detected</span>-->
-                        <br />
+                       ex. 34994
+			<!--<span style="color: red;" ng-show="wForm.zipcode.$dirty && wForm.zipcode.$error.required">*required</span>-->
+                        <!--<span style="color: red;" ng-show="wForm.zipcode.$error.pattern && wForm.zipcode.$dirty">*invalid zipcode detected</span>-->            
+			    <br />
                         <span style="color: red">{{geoLookup.description}}</span>
                         <div class="jumbotron light collapse" style="text-align:left;" id="divCurrent">
                             <div class="row">
