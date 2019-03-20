@@ -82,12 +82,12 @@
                         <div class="jumbotron light collapse" style="text-align:left;" id="divCurrent">
                             <div class="row">
                                 <div class="col-md-8">
-                                    <h3>Current conditions for {{geoLookup.city}}, {{geoLookup.state}}&nbsp;:</h3>
-                                    <h4>{{conditions.weather}}</h4>
-                                    <h4>{{conditions.temp_f}}°&nbsp;F</h4>
-                                    <h4>{{conditions.relative_humidity}}&nbsp;RH</h4>
-                                    <h4>{{conditions.pressure_mb}}&nbsp;mb BP&nbsp;{{pressureTrend}}</h4>
-                                    <h4>Winds&nbsp;{{conditions.wind_string}}</h4>
+                                    <h3>Current conditions for {{geoLookup.LocalizedName}}, {{geoLookup.AdministrativeArea.LocalizedName}}&nbsp;:</h3>
+                                    <h4>{{conditions.WeatherText}}</h4>
+                                    <h4>{{conditions.Temperature.Imperial.Value}}°&nbsp;F</h4>
+                                    <h4>{{conditions.RelativeHumidity}}% Relative Humidity</h4>
+                                    <h4>{{conditions.Pressure.Imperial.Value}}&nbsp;mb Barometric Pressure&nbsp;{{conditions.PressureTendency.LocalizedText}}&nbsp;{{conditions.PressureTrend}}</h4>
+                                    <h4>Winds&nbsp;{{conditions.Wind.Direction.Localized}}&nbsp;{{conditions.Wind.Speed.Imperial.Value}}&nbsp;mph with gusts to {{conditions.WindGust.Speed.Imperial.Value}}&nbsp;mph</h4>
                                 </div>
                                 <div class="col-md-4">
                                     <img src="" id="imagePath" />
@@ -97,8 +97,8 @@
                             <div class="container-fluid text-center text-md-left">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <a href="https://www.wunderground.com">
-                                            <img src="content/logo_UW.png" style="background: black" />
+                                        <a href="https://www.accuweather.com/">
+                                            <img src="content/logo_AW.png" style="background: black" />
                                         </a>                                        
                                     </div>
                                     <div class="col-md-10">

@@ -3,26 +3,38 @@ var app = angular.module('weather', []);
 app.controller('weatherCtrl', function ($scope, $http) {
     $scope.user = { zip: { required: true, maxlength: 5, minlength: 5, invalid: false } }
     $scope.GetIt = function () {
-        var zip = document.getElementById("txtZip");
-        var url = "https://api.wunderground.com/api/c155ff36ff80f3df/geolookup/q/" + zip.value + ".json";
-        var city = "", state = "", error = "";
+        var zip = document.getElementById("txtZip").value;
+        //var url = "https://api.wunderground.com/api/c155ff36ff80f3df/geolookup/q/" + zip.value + ".json";
+        //var url = "http://dataservice.accuweather.com/currentconditions/v1/15203_PC?apikey=0r7BwLqbTB0spDaXXbBbaQHCivpAjbMW";
+        var url = "http://dataservice.accuweather.com/locations/v1/postalcodes/search?apikey=0r7BwLqbTB0spDaXXbBbaQHCivpAjbMW&q=" + zip;
+        var city = "", state = "", error = "", locationKey="";
 
         $http.get(url).then(function (response) {
 
             try {
-                city = response.data.location.city;
-                state = response.data.location.state;
-                $scope.geoLookup = response.data.location;
-                url = "https://api.wunderground.com/api/c155ff36ff80f3df/conditions/q/" + state + "/" + city + ".json";
+                //city = response.data.location.city;
+                city = response.data[0].LocalizedName;
+                //state = response.data.location.state;
+                state = response.data[0].AdministrativeArea.LocalizedName;
+                locationKey = response.data[0].Key;
+                // $scope.geoLookup = response.data.location;
+                $scope.geoLookup = response.data[0];
+                //url = "https://api.wunderground.com/api/c155ff36ff80f3df/conditions/q/" + state + "/" + city + ".json";
+                url = "http://dataservice.accuweather.com/currentconditions/v1/" + locationKey + "?apikey=0r7BwLqbTB0spDaXXbBbaQHCivpAjbMW&details=true"
+                
                 $http.get(url).then(function (response) {
-                    $scope.conditions = response.data.current_observation;
-                    var pressureTrendSymbol = response.data.current_observation.pressure_trend;
-                    var pressureTrendText = "rising";
-                    if (pressureTrendSymbol == "-") pressureTrendText = "falling";
+                    $scope.conditions = response.data[0];
+                    //$scope.conditions = response.data[0].WeatherText;
+                    //var pressureTrendSymbol = response.data.current_observation.pressure_trend;
+                    //var pressureTrendSymbol = "";
+                    //var pressureTrendText = "rising";
+                    var pressureTrendText = "";
+                    //if (pressureTrendSymbol == "-") pressureTrendText = "falling";
                     $scope.pressureTrend = pressureTrendText;
                     var path = "content/sunny.png";
-                    var currCond = response.data.current_observation.weather;
-                    if (currCond == "Partly Cloudy")
+                    //var currCond = response.data.current_observation.weather;
+                    var currCond = $scope.conditions.WeatherText;
+                    if (currCond == "Cloudy")
                         path = "content/partly_cloudy.png";
                     else if (currCond == "Mostly Cloudy")
                         path = "content/mostly_cloudy.png";
