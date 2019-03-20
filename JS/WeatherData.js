@@ -27,11 +27,11 @@ app.controller('weatherCtrl', function ($scope, $http) {
                     var path = "content/sunny.png";
                     //var currCond = response.data.current_observation.weather;
                     var currCond = $scope.conditions.WeatherText;
-                    if (currCond == "Cloudy")
+                    if (currCond.toLowerCase() == "cloudy")
                         path = "content/partly_cloudy.png";
-                    else if (currCond == "Mostly Cloudy")
+                    else if (currCond.toLowerCase() == "mostly cloudy")
                         path = "content/mostly_cloudy.png";
-                    else if (currCond == "Scattered Clouds")
+                    else if (currCond.toLowerCase() == "scattered clouds")
                         path = "content/partly_cloudy.png";
                     else if (currCond.toLowerCase().indexOf("overcast") !== -1)
                         path = "content/cloudy.png";                    
