@@ -9,15 +9,11 @@ app.controller('weatherCtrl', function ($scope, $http) {
 
         $http.get(url).then(function (response) {
 
-            try {
-                //city = response.data.location.city;
-                city = response.data[0].LocalizedName;
-                //state = response.data.location.state;
+            try {                
+                city = response.data[0].LocalizedName;               
                 state = response.data[0].AdministrativeArea.LocalizedName;
-                locationKey = response.data[0].Key;
-                // $scope.geoLookup = response.data.location;
-                $scope.geoLookup = response.data[0];
-                //url = "https://api.wunderground.com/api/c155ff36ff80f3df/conditions/q/" + state + "/" + city + ".json";
+                locationKey = response.data[0].Key;              
+                $scope.geoLookup = response.data[0];               
                 url = "http://dataservice.accuweather.com/currentconditions/v1/" + locationKey + "?apikey=0r7BwLqbTB0spDaXXbBbaQHCivpAjbMW&details=true"
                 
                 $http.get(url).then(function (response) {
