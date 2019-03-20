@@ -4,7 +4,7 @@ app.controller('weatherCtrl', function ($scope, $http) {
     $scope.user = { zip: { required: true, maxlength: 5, minlength: 5, invalid: false } }
     $scope.GetIt = function () {
         var zip = document.getElementById("txtZip").value;
-        var url = "http://dataservice.accuweather.com/locations/v1/postalcodes/search?apikey=0r7BwLqbTB0spDaXXbBbaQHCivpAjbMW&q=" + zip;
+        var url = "https://dataservice.accuweather.com/locations/v1/postalcodes/search?apikey=0r7BwLqbTB0spDaXXbBbaQHCivpAjbMW&q=" + zip;
         var city = "", state = "", error = "", locationKey="";
 
         $http.get(url).then(function (response) {
@@ -14,7 +14,7 @@ app.controller('weatherCtrl', function ($scope, $http) {
                 state = response.data[0].AdministrativeArea.LocalizedName;
                 locationKey = response.data[0].Key;              
                 $scope.geoLookup = response.data[0];               
-                url = "http://dataservice.accuweather.com/currentconditions/v1/" + locationKey + "?apikey=0r7BwLqbTB0spDaXXbBbaQHCivpAjbMW&details=true"
+                url = "https://dataservice.accuweather.com/currentconditions/v1/" + locationKey + "?apikey=0r7BwLqbTB0spDaXXbBbaQHCivpAjbMW&details=true"
                 
                 $http.get(url).then(function (response) {
                     $scope.conditions = response.data[0];                   
